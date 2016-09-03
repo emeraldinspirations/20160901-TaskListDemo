@@ -21,6 +21,9 @@ class cliListViewTest extends \PHPUnit_Framework_TestCase {
   protected $SampleTask;
   protected $SampleTask2;
 
+  const USER_CURRENT  = '18881701';
+  const USER_OTHER    = '16778243';
+
   /**
    * Sets up the fixture, for example, opens a network connection.
    * This method is called before a test is executed.
@@ -30,13 +33,20 @@ class cliListViewTest extends \PHPUnit_Framework_TestCase {
     //$this->object = new cliView;
     
     $this->SampleTask = new taskModel();
-    $this->SampleTask->Title       = 'The quick brown fox jumped over the lazy'
+    $this->SampleTask->Title        = 'The quick brown fox jumped over the lazy'
             . ' dogs and foobared the whole thing.';
-    $this->SampleTask->UpdatedDate = '2016-09-03 04:45:21';
+    $this->SampleTask->UpdatedDate  = '2016-09-03 04:45:21';
+    $this->SampleTask->CreatedDate  = '2016-09-03 04:45:21';
+    $this->SampleTask->CreatedBy    = self::USER_CURRENT;
+    $this->SampleTask->UpdatedBy    = self::USER_CURRENT;
     
     $this->SampleTask2 = new taskModel();
-    $this->SampleTask2->Title      = 'The quick brown fox jumped over the lazy'
+    $this->SampleTask2->Title       = 'The quick brown fox jumped over the lazy'
             . ' dogs and foobared.';
+    $this->SampleTask2->UpdatedDate  = '2016-09-03 05:33:14';
+    $this->SampleTask2->CreatedDate  = '2016-09-03 04:45:21';
+    $this->SampleTask2->CreatedBy    = self::USER_OTHER;
+    $this->SampleTask2->UpdatedBy    = self::USER_CURRENT;
   }
 
   /**
@@ -57,19 +67,42 @@ class cliListViewTest extends \PHPUnit_Framework_TestCase {
             'This test has not been implemented yet.'
     );
   }
+  /**
+   * @covers emeraldinspirations\TaskListDemo\task\cliListView::renderIndicatorModified
+   */
+  public function testRenderIndicatorModified() {
+    $this->assertEquals(
+            ' ',
+            cliListView::renderIndicatorModified(
+                    $this->SampleTask, self::USER_CURRENT),
+            'Not Modified not rendered correctly'
+    );
+    
+    $this->assertEquals(
+            "\033[32m.",
+            cliListView::renderIndicatorModified(
+                    $this->SampleTask2, self::USER_CURRENT),
+            'Self-Modified not rendered correctly'
+    );
+    
+    $this->assertEquals(
+            "\033[31m!",
+            cliListView::renderIndicatorModified(
+                    $this->SampleTask2, self::USER_OTHER),
+            'Others-Modified not rendered correctly'
+    );
+  }
 
   /**
-   * @covers emeraldinspirations\TaskListDemo\task\cliView::renderTitle
+   * @covers emeraldinspirations\TaskListDemo\task\cliListView::renderTitle
    */
   public function testRenderTitle() {
-    echo strlen($this->SampleTask->Title);
     $this->assertEquals(
             "\033[37mThe quick brown fox jumped over the lazy dogs and foobar...",
             cliListView::renderTitle($this->SampleTask),
             'Truncated title not rendered correctly'
     );
     
-    echo strlen($this->SampleTask2->Title);
     $this->assertEquals(
             "\033[37mThe quick brown fox jumped over the lazy dogs and foobared.",
             cliListView::renderTitle($this->SampleTask2),

@@ -21,12 +21,15 @@ class taskModel {
   public $Title;
   public $UpdatedBy;
   public $UpdatedDate;
+  public $CreatedBy;
+  public $CreatedDate;
   
   //isOrigin = (ParentRevID == NULL)
   /*
    *  SELECT
    *    initalTask.ID,
-   *    initalTask.UpdatedBy as CreatedBy
+   *    initalTask.UpdatedBy          AS CreatedBy,
+   *    initalTask.UpdatedDate        AS CreatedDate,
    *    currentTask.RevisionID,
    *    currentTask.ParentRevisionID,
    *    currentTask.Status,

@@ -15,6 +15,8 @@ namespace emeraldinspirations\TaskListDemo\task;
  */
 class cliListView {
   
+  const COLOR_FG_RED    = "\033[31m";
+  const COLOR_FG_GREEN  = "\033[32m";
   const COLOR_FG_CYAN   = "\033[36m";
   const COLOR_FG_WHITE  = "\033[37m";
 
@@ -60,6 +62,22 @@ class cliListView {
   }
   
   const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
+  
+  static function renderIndicatorModified(
+          taskModel $vTask,
+          $vUserID,
+          $vColorBySelf   = self::COLOR_FG_GREEN,
+          $vColorByOthers = self::COLOR_FG_RED,
+          $vCharBySelf    = '.',
+          $vCharByOthers  = '!') {
+    if($vTask->UpdatedDate == $vTask->CreatedDate) {
+      return ' ';
+    } elseif ($vTask->UpdatedBy == $vUserID) {
+      return $vColorBySelf.$vCharBySelf;
+    } else {
+      return $vColorByOthers.$vCharByOthers;
+    }
+  }
   
   static function renderModDate(
           taskModel $vTask,
