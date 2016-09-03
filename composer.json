@@ -1,0 +1,14 @@
+{
+    "name": "emeraldinspirations/20160901-task-list-demo",
+    "description": "Simple task manager",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew \"Juniper\" Barlett",
+            "email": "emeraldinspirations@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

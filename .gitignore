@@ -2,3 +2,5 @@
 .*.swp
 /nbproject/
 /config.json
+
+/vendor/
