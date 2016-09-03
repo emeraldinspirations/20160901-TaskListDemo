@@ -16,6 +16,7 @@ namespace emeraldinspirations\TaskListDemo\task;
 class cliView {
   
   const COLOR_FG_CYAN   = "\033[36m";
+  const COLOR_FG_WHITE  = "\033[37m";
 
   public function output() {
     // 80 char
@@ -67,7 +68,23 @@ class cliView {
     
     $pDate = \DateTime::createFromFormat(
             self::MYSQL_DATE_FORMAT, $vTask->UpdatedDate);
-    return $vColor.$pDate->format($vDateFormat);
+    return  $vColor
+            .$pDate->format($vDateFormat);
+  }
+  
+  static function renderTitle(
+          taskModel $vTask,
+          $vColor = self::COLOR_FG_WHITE,
+          $vTruncateAt  = 59,
+          $vEllipsis    = '...') {
+    if(strlen($vTask->Title) > $vTruncateAt) {
+      $pMaxLen = $vTruncateAt - strlen($vEllipsis);
+      return  $vColor
+              .substr($vTask->Title, 0, $pMaxLen)
+              .$vEllipsis;
+    }
+      return  $vColor
+              .$vTask->Title;
   }
   
 }

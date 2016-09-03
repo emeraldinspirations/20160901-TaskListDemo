@@ -19,6 +19,7 @@ class cliViewTest extends \PHPUnit_Framework_TestCase {
    * @var taskModel
    */
   protected $SampleTask;
+  protected $SampleTask2;
 
   /**
    * Sets up the fixture, for example, opens a network connection.
@@ -29,7 +30,13 @@ class cliViewTest extends \PHPUnit_Framework_TestCase {
     //$this->object = new cliView;
     
     $this->SampleTask = new taskModel();
+    $this->SampleTask->Title       = 'The quick brown fox jumped over the lazy'
+            . ' dogs and foobared the whole thing.';
     $this->SampleTask->UpdatedDate = '2016-09-03 04:45:21';
+    
+    $this->SampleTask2 = new taskModel();
+    $this->SampleTask2->Title      = 'The quick brown fox jumped over the lazy'
+            . ' dogs and foobared.';
   }
 
   /**
@@ -52,8 +59,26 @@ class cliViewTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
+   * @covers emeraldinspirations\TaskListDemo\task\cliView::renderTitle
+   */
+  public function testRenderTitle() {
+    echo strlen($this->SampleTask->Title);
+    $this->assertEquals(
+            "\033[37mThe quick brown fox jumped over the lazy dogs and foobar...",
+            cliView::renderTitle($this->SampleTask),
+            'Truncated title not rendered correctly'
+    );
+    
+    echo strlen($this->SampleTask2->Title);
+    $this->assertEquals(
+            "\033[37mThe quick brown fox jumped over the lazy dogs and foobared.",
+            cliView::renderTitle($this->SampleTask2),
+            'Standard title not rendered correctly'
+    );
+  }
+
+  /**
    * @covers emeraldinspirations\TaskListDemo\task\cliView::renderModDate
-   * @todo   Implement testRenderModDate().
    */
   public function testRenderModDate() {
     $this->assertEquals(
