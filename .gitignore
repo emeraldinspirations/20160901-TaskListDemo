@@ -1,3 +1,4 @@
 # Ignore nano temp files
 .*.swp
 /nbproject/
+/config.json

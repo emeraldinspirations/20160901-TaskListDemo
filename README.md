@@ -1,17 +1,31 @@
-firstIterationIdentifier - A class in emeraldinspirations library
+20160901-TaskListDemo - A quick task list app
 ========================================
 
-A quick way to determine the first iteration of a loop
-
-This class is used in a loop operation to track if it is the first iteration 
-of said loop.  Alternately, this class can also be passed a value in each
-iteration and only the first value will be retained.
+???
 
 See [Output from phpDoc](https://github.com/emeraldinspirations/lib-firstIterationIdentifier/blob/master/phpDoc/index.html) for more information and documentation.
 
 [![Build Status](https://travis-ci.org/composer/composer.svg?branch=master)](https://travis-ci.org/composer/composer)
 [![Dependency Status](https://www.versioneye.com/php/composer:composer/dev-master/badge.svg)](https://www.versioneye.com/php/composer:composer/dev-master)
 [![Reference Status](https://www.versioneye.com/php/composer:composer/reference_badge.svg?style=flat)](https://www.versioneye.com/php/composer:composer/references)
+
+Purpose
+-------
+
+This project is designed in order to determine the different coding styles, as
+well as the strengths and weaknesses between
+([Damian Pound](https://github.com/chinotohttps://github.com/chinoto)) and
+([Matthew "Juniper" Barlett](https://github.com/emeraldinspirations).  
+
+Project Requirements
+--------------------
+
+- PHP Todo List App
+- Saves to MySQL database
+- One table, minimum fields: id, text
+- Full CRUD
+- No auto-refresh (Push, AJAX, javascript, etc.)
+- 
 
 Installation / Usage
 --------------------
