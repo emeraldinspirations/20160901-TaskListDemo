@@ -13,7 +13,7 @@ namespace emeraldinspirations\TaskListDemo\task;
  *
  * @author emeraldinspirations
  */
-class cliView {
+class cliListView {
   
   const COLOR_FG_CYAN   = "\033[36m";
   const COLOR_FG_WHITE  = "\033[37m";
@@ -27,15 +27,11 @@ class cliView {
      * 
      *     Build inital structure
      * ^^^^ - 4
+     * 
      * Indicator 1:
      * -------------------------------------------------------------------------
      * Task                 *               White
      * My Task              >               Green
-     * 
-     * Indicator 2:
-     * -------------------------------------------------------------------------
-     * Modified (By Others) !               Red
-     * Modified (By Others) .               Green
      * 
      * SHA1:
      * -------------------------------------------------------------------------
@@ -44,6 +40,10 @@ class cliView {
      * Deleted              6               Strike / Muted / Yellow
      * (Expired)            6               Red
      * 
+     * Indicator 2:
+     * -------------------------------------------------------------------------
+     * Modified (By Others) !               Red
+     * Modified (By Self)   .               Green
      * 
      * Element Name:        Chars:  Total:  Color:
      * =========================================================================
