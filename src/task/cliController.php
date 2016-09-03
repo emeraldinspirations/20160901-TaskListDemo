@@ -6,13 +6,13 @@
  * and open the template in the editor.
  */
 
-namespace emeraldinspirations\TaskListDemo;
+namespace emeraldinspirations\TaskListDemo\task;
 
 /**
- * Description of taskCollection
+ * Description of cliController
  *
  * @author emeraldinspirations
  */
-class taskCollection {
+class cliController {
   //put your code here
 }

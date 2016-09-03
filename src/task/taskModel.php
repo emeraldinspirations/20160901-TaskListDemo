@@ -6,14 +6,14 @@
  * and open the template in the editor.
  */
 
-namespace emeraldinspirations\TaskListDemo;
+namespace emeraldinspirations\TaskListDemo\task;
 
 /**
  * Description of task
  *
  * @author emeraldinspirations
  */
-class task {
+class taskModel {
   public $ID;
   public $RevisionID;       //40 char
   public $ParentRevisionID; //40 char
