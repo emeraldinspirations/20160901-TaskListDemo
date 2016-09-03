@@ -48,7 +48,7 @@ class cliListViewTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers emeraldinspirations\TaskListDemo\task\cliView::output
+   * @covers emeraldinspirations\TaskListDemo\task\cliListView::output
    * @todo   Implement testOutput().
    */
   public function testOutput() {
@@ -78,7 +78,7 @@ class cliListViewTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers emeraldinspirations\TaskListDemo\task\cliView::renderModDate
+   * @covers emeraldinspirations\TaskListDemo\task\cliListView::renderModDate
    */
   public function testRenderModDate() {
     $this->assertEquals(
