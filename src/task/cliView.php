@@ -14,6 +14,8 @@ namespace emeraldinspirations\TaskListDemo\task;
  * @author emeraldinspirations
  */
 class cliView {
+  
+  const COLOR_FG_CYAN   = "\033[36m";
 
   public function output() {
     // 80 char
@@ -56,8 +58,16 @@ class cliView {
      */
   }
   
-  static function renderModDate(taskModel $vTask) {
+  const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
+  
+  static function renderModDate(
+          taskModel $vTask,
+          $vColor = self::COLOR_FG_CYAN,
+          $vDateFormat = 'Y-m-d') {
     
+    $pDate = \DateTime::createFromFormat(
+            self::MYSQL_DATE_FORMAT, $vTask->UpdatedDate);
+    return $vColor.$pDate->format($vDateFormat);
   }
   
 }
