@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace emeraldinspirations\TaskListDemo\task;
+namespace SnSDev\TaskListDemo\task;
 
 /**
  * Description of cliView
@@ -42,7 +42,7 @@ class cliListView {
      * Deleted              6               Strike / Muted / Yellow
      * (Expired)            6               Red
      * 
-     * Indicator 2:
+     * Indicator 2 (Modified):
      * -------------------------------------------------------------------------
      * Modified (By Others) !               Red
      * Modified (By Self)   .               Green
@@ -62,6 +62,16 @@ class cliListView {
   }
   
   const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
+  
+  static function renderSHA1(
+          taskModel $vTask,
+          $vMostRecentId    = '',
+          $vColorMostRecent = self::COLOR_FG_GREEN,
+          $vColorDefault    = self::COLOR_FG_GREEN,
+          $vFormatDeleted   = '') {
+    
+    
+  }
   
   static function renderIndicatorModified(
           taskModel $vTask,

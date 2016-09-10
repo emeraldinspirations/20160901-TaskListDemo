@@ -43,7 +43,7 @@ Conversation on September 1st 2016
 > Just figured it would save time
 > 
 > Damian Pound [1:07 AM]  
-> Definitely. Registration is kind of a bitch by itself. If done properly, it would need to collect email, username, and password with the requirement that it be strong (which is then hashed for database leak security), send a verification email, and possibly have an external authorizer like Facebook or Google for security. Even then, I feel like I'm probably missing something.
+> Definitely. Registration is kind of a [censored] by itself. If done properly, it would need to collect email, username, and password with the requirement that it be strong (which is then hashed for database leak security), send a verification email, and possibly have an external authorizer like Facebook or Google for security. Even then, I feel like I'm probably missing something.
 > 
 > [1:09]  
 > Would be neat to have a way to easily create and switch to other users though.

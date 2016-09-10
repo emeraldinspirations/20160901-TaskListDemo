@@ -1,6 +1,6 @@
 <?php
 
-namespace emeraldinspirations\TaskListDemo\task;
+namespace SnSDev\TaskListDemo\task;
 include "../src/task/cliListView.php";
 include "../src/task/taskModel.php";
 

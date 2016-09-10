@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace emeraldinspirations\TaskListDemo\task;
+namespace SnSDev\TaskListDemo\task;
 
 /**
  * Description of cliController
