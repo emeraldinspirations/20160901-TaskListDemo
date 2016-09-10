@@ -6,7 +6,7 @@ Purpose
 
 This project is designed in order to determine the different coding styles, as
 well as the strengths and weaknesses between
-[Damian Pound](https://github.com/chinotohttps://github.com/chinoto) and
+[Damian Pound](https://github.com/chinoto) and
 [Matthew "Juniper" Barlett](https://github.com/emeraldinspirations).  
 
 Project Requirements
